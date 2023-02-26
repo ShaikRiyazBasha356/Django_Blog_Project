@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block start %}
+
+
+
+<div class="container mt-5" style="background-image: url('https://images.pexels.com/photos/698808/pexels-photo-698808.jpeg?auto=compress&cs=tinysrgb&w=600');">
+    
+
+    <a href="{% url 'see_blog' %}" class="btn btn-danger">View Your blogs</a>
+    
+    <form method="post" class="mt-5 pt-5 mb-5 pb-5"
+          enctype="multipart/form-data" action="{% url 'add_blog' %}">
+        {% csrf_token %}
+        <div class="row">
+            <!-- <div class="col-md-12">
+                <label>Enter blog title</label>
+                <input type="text" class="form-control" placeholder="Enter title" name="title">
+            </div> -->
+
+            <div class="col-md-12" style="color: rgb(155, 155, 194); font-style: oblique;">
+                
+                {{form.media}}
+                {{form.as_p}}
+            </div>
+
+            <div class="col-md-12">
+                <input type="file" name="image" class="form-control"  style=" background-color: aqua;">
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-5">Create Blog</button>
+
+    </form>
+
+</div>
+
+
+{% endblock %}
